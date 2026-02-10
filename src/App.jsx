@@ -1,24 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import SurprisePage from './surprise';
 
-// --- Komponen Halaman Baru (Nanti bisa dipisah ke file Surprise.jsx) ---
-const SurprisePage = () => {
-  return (
-    <div className="card-glass surprise-box">
-      <h1>Yeay! Akhirnya sampai! 🎉</h1>
-      <p>Ini web rahasia buat kamu.</p>
-      <div className="gallery">
-        {/* Contoh tempat foto nanti */}
-        <div className="photo-placeholder"> Foto lucu</div>
-      </div>
-      <p className="love-note">
-        "Tulisannya belum jadi."
-      </p>
-    </div>
-  );
-};
-
-// --- Komponen Loading (Animasi Lucu) ---
+// --- loading screen ---
 const LoadingScreen = () => {
   return (
     <div className="loading-container">
@@ -33,14 +17,14 @@ const LoadingScreen = () => {
   );
 };
 
-// --- Komponen Utama ---
+// --- komponen Utama ---
 function App() {
-  const [pageState, setPageState] = useState('home'); // 'home', 'loading', 'surprise'
+  const [pageState, setPageState] = useState('home'); 
 
   const handleStart = () => {
     setPageState('loading');
     
-    // Simulasi loading selama 3 detik sebelum pindah halaman
+    // loading 3 detik sblm pindah halaman
     setTimeout(() => {
       setPageState('surprise');
     }, 3500);
@@ -48,32 +32,33 @@ function App() {
 
   return (
     <div className="container">
-  {/* Background decoration tetap ada */}
+  {/* background decoration tetap ada */}
   <div className="background-shapes">
     {[...Array(6)].map((_, i) => (
       <div key={i} className="shape"></div>
     ))}
   </div>
   
-  {/* TAMBAHKAN KODE DI BAWAH INI */}
+  {/* kode tambahan kalo masih ada ide */}
   <div className="emoji-rain">
     {[...Array(20)].map((_, i) => (
-      <span key={i} className="floating-emoji">
+      <span key={i} className="floating-emoji" style={{ '--i': i, left: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 5}s`}}>
         {['🐱‍🚀', '🎉', '✨', '🌸', '🍭', '🎏'][i % 6]}
       </span>
     ))}
   </div>
-  {/* SAMPAI SINI */}
+  {/* sampe sini aja */}
 
-  {/* Sisanya tetap sama (Logic Perpindahan Halaman) */}
-      {/* Background decoration tetap ada */}
+  {/* sisanya tetap sama (logic Perpindahan Halaman) */}
+      {/* background decoration ttp ada */}
       <div className="background-shapes">
         {[...Array(6)].map((_, i) => (
           <div key={i} className="shape"></div>
         ))}
       </div>
 
-      {/* Logic Perpindahan Halaman */}
+      {/* logic Perpindahan Halaman */}
       {pageState === 'home' && (
         <div className="card-glass center-content fade-in">
           <div 
@@ -83,7 +68,7 @@ function App() {
             📩
           </div>
           <h1 className="title">Surat Valentine</h1>
-          <p className="hint">Klik surat untuk membuka</p>
+          <p className="hint">Klik surat untuk membuka isinya</p>
         </div>
       )}
 

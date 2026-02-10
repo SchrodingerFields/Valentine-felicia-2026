@@ -1,6 +1,6 @@
 
-/* --- Base Styles (Sama seperti sebelumnya) --- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+/* --- base Styles buat font tulisan --- */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap');
 
 :root {
   --primary: #ff6b81;
@@ -24,7 +24,7 @@ body {
   background: radial-gradient(circle, #fff0f6, #ffe3e3);
 }
 
-/* --- Glassmorphism Card --- */
+/* --- glassmorphism card --- */
 .card-glass {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(12px);
@@ -49,7 +49,7 @@ body {
   transform: scale(1.1) rotate(10deg);
 }
 
-/* --- Animasi Loading Khusus --- */
+/* --- animasi loading khusus --- */
 .loading-container {
   text-align: center;
 }
@@ -75,7 +75,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* Progress Bar Unik */
+/* progress bar keren/unik */
 .progress-bar {
   width: 250px;
   height: 8px;
@@ -96,11 +96,11 @@ body {
 
 @keyframes fillBar {
   0% { width: 0%; }
-  40% { width: 60%; } /* Jeda sebentar biar natural */
+  40% { width: 60%; } /* jeda bentar biar natural */
   100% { width: 100%; }
 }
 
-/* --- Animasi Transisi Halaman (Fade In) --- */
+/* --- animasi transisi halaman (fade in) --- */
 .fade-in {
   animation: fadeInOpacity 1s ease-in;
 }
@@ -143,7 +143,7 @@ body {
   color: #555;
 }
 
-/* --- Background Shapes (Sama seperti sebelumnya, opsional) --- */
+/* --- bentuk background (opsional) --- */
 .background-shapes .shape {
   position: absolute;
   bottom: -50px;
@@ -152,15 +152,26 @@ body {
   animation: floatUp 15s linear infinite;
   z-index: -1;
 }
-.shape:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-duration: 8s; }
-.shape:nth-child(2) { left: 80%; width: 60px; height: 60px; animation-duration: 12s; animation-delay: 2s; }
-/* ... tambahkan shape lain jika mau ... */
 
 @keyframes floatUp {
   to { transform: translateY(-110vh) rotate(360deg); }
 }
 
-/* --- Animasi Emoji Rain --- */
+/* --- biar aman di hp --- */
+@media (max-width: 480px) {
+  .card-glass {
+    padding: 1.5rem;
+    width: 85%;
+  }
+  .main-icon {
+    font-size: 3.5rem;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+/* --- animasi ujan emoji --- */
 
 .emoji-rain {
   position: absolute;
@@ -168,20 +179,20 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Agar tidak menghalangi klik pada tombol */
+  pointer-events: none; 
   overflow: hidden;
-  z-index: 0; /* Di belakang kartu tapi di depan background dasar */
+  z-index: 0; 
 }
 
 .floating-emoji {
   position: absolute;
-  top: -50px; /* Mulai dari luar layar atas */
+  top: -50px; 
   font-size: 1.5rem;
   user-select: none;
   animation: fall linear infinite;
 }
 
-/* Membuat variasi posisi, ukuran, dan kecepatan jatuh untuk tiap emoji */
+/* variasi posisi, ukuran, tempat jatuh */
 .floating-emoji:nth-child(1) { left: 5%; animation-duration: 6s; animation-delay: 0s; }
 .floating-emoji:nth-child(2) { left: 15%; animation-duration: 8s; animation-delay: 2s; font-size: 2rem; }
 .floating-emoji:nth-child(3) { left: 25%; animation-duration: 7s; animation-delay: 4s; }
@@ -192,8 +203,24 @@ body {
 .floating-emoji:nth-child(8) { left: 75%; animation-duration: 11s; animation-delay: 0s; }
 .floating-emoji:nth-child(9) { left: 85%; animation-duration: 8s; animation-delay: 3s; font-size: 1.8rem; }
 .floating-emoji:nth-child(10) { left: 95%; animation-duration: 6s; animation-delay: 6s; }
-/* Duplikasi delay untuk sisanya agar layar penuh */
+/* duplikasi delay sisanya agar layar penuh */
 .floating-emoji:nth-child(n+11) { animation-delay: 4s; left: calc(5% * var(--i)); }
+
+@keyframes popInFeedback {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.final-heart {
+  font-size: 5rem;
+  animation: heartbeat 1s infinite;
+  margin: 1.5rem 0;
+}
+
+.final-title {
+  color: var(--primary);
+  font-family: 'Pacifico', cursive;
+}
 
 @keyframes fall {
   0% {
@@ -210,4 +237,167 @@ body {
     transform: translateY(110vh) rotate(360deg);
     opacity: 0;
   }
+}
+
+/* --- Quiz 2 Pilihan --- */
+
+.quiz-box {
+  max-width: 500px; 
+  transition: transform 0.2s;
+}
+
+.step-indicator {
+  font-size: 0.8rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+.question-text {
+  font-size: 1.4rem;
+  color: #363435;
+  margin-bottom: 2rem;
+  min-height: 60px; 
+}
+
+/* grid Layout 2 Tombol */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* ngebagi kolom jadi sama besar */
+  gap: 15px;
+  width: 100%;
+}
+
+.option-btn {
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid white;
+  padding: 20px 10px;
+  border-radius: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%; /* tinggi tombol sama */
+}
+
+.option-btn:hover {
+  background: var(--secondary);
+  transform: translateY(-5px);
+  color: #d6336c;
+  border-color: #ff6b81;
+}
+
+.option-btn:active {
+  transform: scale(0.95);
+}
+
+/* --- animasi goyang kalo salah jawab  --- */
+.shake-animation {
+  animation: shakeHard 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  border-color: red !important; /* efek merah di glasmorphin card */
+}
+
+@keyframes shakeHard {
+  10%, 90% { transform: translate3d(-2px, 0, 0) rotate(-1deg); }
+  20%, 80% { transform: translate3d(4px, 0, 0) rotate(2deg); }
+  30%, 50%, 70% { transform: translate3d(-8px, 0, 0) rotate(-4deg); border-color: red; }
+  40%, 60% { transform: translate3d(8px, 0, 0) rotate(4deg); }
+}
+
+.wrong-msg {
+  color: #e63946;
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  animation: fadeIn 0.2s;
+}
+
+/* ikon ulang di akhir */
+.btn-restart {
+  margin-top: 2rem;
+  padding: 10px 25px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+/* buat layar hp (susun tombol jadi atas bawah kalo layar sempit) */
+@media (max-width: 400px) {
+  .options-grid {
+    grid-template-columns: 1fr; /* jadi 1 kolom */
+  }
+}
+
+/* --- style buat progress ring sama bubbles --- */
+
+/* header quiz */
+.header-quiz {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.progress-ring-svg {
+  transform: rotate(-90deg); /* agar putaran mulai dari jam 12*/
+}
+
+.progress-ring-fill {
+  transition: stroke-dashoffset 0.5s ease-in-out;
+  stroke-linecap: round;
+}
+
+.progress-text {
+  font-size: 0.8rem;
+  fill: #ff6b81;
+  font-weight: bold;
+  transform: rotate(90deg); /* balik teks biar ga miring */
+  transform-origin: center; /* titik puter di tengah */
+  font-family: 'Poppins', sans-serif;
+}
+
+/* animasi bubbles (centang / Silang) */
+.floating-bubble {
+  position: fixed; /* agar posisinya akurat sesuai layar */
+  font-size: 2rem;
+  pointer-events: none; /* agar ga bgehalangin klik */
+  animation: floatUpFade 1s forwards; /* animasi sekali jalan */
+  z-index: 9999; /* mastiin di paling atas */
+  transform: translate(-50%, -50%); /* center di titik klik */
+}
+
+@keyframes floatUpFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -100px) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -150px) scale(1);
+  }
+}
+
+/* tambahan : animasi halus pas ganti soal */
+.fade-in-text {
+  animation: fadeInText 0.5s ease-out;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
