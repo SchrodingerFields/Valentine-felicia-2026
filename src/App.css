@@ -1,0 +1,213 @@
+
+/* --- Base Styles (Sama seperti sebelumnya) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+:root {
+  --primary: #ff6b81;
+  --secondary: #ffccd5;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  overflow: hidden;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle, #fff0f6, #ffe3e3);
+}
+
+/* --- Glassmorphism Card --- */
+.card-glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border: 10px solid rgba(243, 144, 190, 0.8);
+  padding: 3rem;
+  border-radius: 24px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(255, 106, 128, 0.15);
+  max-width: 400px;
+  width: 90%;
+  -webkit-text-fill-color: #363435;
+  font-family: 'Pacifico', 'Nunito';
+}
+
+.main-icon {  
+  font-size: 5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.main-icon:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+/* --- Animasi Loading Khusus --- */
+.loading-container {
+  text-align: center;
+}
+
+.heart-loader {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  15% { transform: scale(1.2); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.loading-text {
+  color: #ff6b81;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Progress Bar Unik */
+.progress-bar {
+  width: 250px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 1px solid #ffccd5;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff9a9e 0%, #ff6b81 100%);
+  width: 0%;
+  border-radius: 10px;
+  animation: fillBar 3.5s ease-in-out forwards;
+}
+
+@keyframes fillBar {
+  0% { width: 0%; }
+  40% { width: 60%; } /* Jeda sebentar biar natural */
+  100% { width: 100%; }
+}
+
+/* --- Animasi Transisi Halaman (Fade In) --- */
+.fade-in {
+  animation: fadeInOpacity 1s ease-in;
+}
+
+@keyframes fadeInOpacity {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Pulse Animation untuk Tombol Awal --- */
+.pulse-animation {
+  animation: subtlePulse 2s infinite;
+}
+
+@keyframes subtlePulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 107, 129, 0)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 5px 15px rgba(255, 107, 129, 0.3)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 107, 129, 0)); }
+}
+
+/* --- Halaman Surprise --- */
+.surprise-box h1 {
+  color: #d6336c;
+  font-size: 1.8rem;
+}
+.photo-placeholder {
+  width: 100%;
+  height: 150px;
+  background: #ffe3e3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #d6336c;
+  margin: 1rem 0;
+  border: 2px dashed #ffb3c1;
+}
+.love-note {
+  font-style: italic;
+  color: #555;
+}
+
+/* --- Background Shapes (Sama seperti sebelumnya, opsional) --- */
+.background-shapes .shape {
+  position: absolute;
+  bottom: -50px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  animation: floatUp 15s linear infinite;
+  z-index: -1;
+}
+.shape:nth-child(1) { left: 10%; width: 40px; height: 40px; animation-duration: 8s; }
+.shape:nth-child(2) { left: 80%; width: 60px; height: 60px; animation-duration: 12s; animation-delay: 2s; }
+/* ... tambahkan shape lain jika mau ... */
+
+@keyframes floatUp {
+  to { transform: translateY(-110vh) rotate(360deg); }
+}
+
+/* --- Animasi Emoji Rain --- */
+
+.emoji-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Agar tidak menghalangi klik pada tombol */
+  overflow: hidden;
+  z-index: 0; /* Di belakang kartu tapi di depan background dasar */
+}
+
+.floating-emoji {
+  position: absolute;
+  top: -50px; /* Mulai dari luar layar atas */
+  font-size: 1.5rem;
+  user-select: none;
+  animation: fall linear infinite;
+}
+
+/* Membuat variasi posisi, ukuran, dan kecepatan jatuh untuk tiap emoji */
+.floating-emoji:nth-child(1) { left: 5%; animation-duration: 6s; animation-delay: 0s; }
+.floating-emoji:nth-child(2) { left: 15%; animation-duration: 8s; animation-delay: 2s; font-size: 2rem; }
+.floating-emoji:nth-child(3) { left: 25%; animation-duration: 7s; animation-delay: 4s; }
+.floating-emoji:nth-child(4) { left: 35%; animation-duration: 10s; animation-delay: 1s; font-size: 1.2rem; }
+.floating-emoji:nth-child(5) { left: 45%; animation-duration: 6s; animation-delay: 3s; }
+.floating-emoji:nth-child(6) { left: 55%; animation-duration: 9s; animation-delay: 5s; font-size: 2.2rem; }
+.floating-emoji:nth-child(7) { left: 65%; animation-duration: 7s; animation-delay: 2s; }
+.floating-emoji:nth-child(8) { left: 75%; animation-duration: 11s; animation-delay: 0s; }
+.floating-emoji:nth-child(9) { left: 85%; animation-duration: 8s; animation-delay: 3s; font-size: 1.8rem; }
+.floating-emoji:nth-child(10) { left: 95%; animation-duration: 6s; animation-delay: 6s; }
+/* Duplikasi delay untuk sisanya agar layar penuh */
+.floating-emoji:nth-child(n+11) { animation-delay: 4s; left: calc(5% * var(--i)); }
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
