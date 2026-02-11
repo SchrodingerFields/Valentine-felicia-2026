@@ -77,12 +77,13 @@ const SurprisePage = () => {
     return (
       <div className="card-glass surprise-box fade-in">
         <h1>Yeay! Lulus 100%! 🎉</h1>
-        <p>Fiks 100% bisa ke Blok M. BTW selamat valentine!!🎉</p>
+        <p>Fiks 100% bisa ke Blok M. BTW selamat valentine yaa!!🎉</p>
         <div className="gallery">
           <div className="photo-placeholder">
           <img src={eminemImg} className='gambar-eminem' />
           </div>
         </div>
+        <p>--- Web buatan Vaudi ---</p>
         <button className="btn-restart" onClick={() => window.location.reload()}>
           Ulangi Lagi ↺
         </button>
