@@ -121,7 +121,7 @@ body {
   100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 107, 129, 0)); }
 }
 
-
+/* --- halaman Surprise --- */
 .surprise-box h1 {
   color: #d6336c;
   font-size: 1.8rem;
@@ -202,16 +202,16 @@ body {
 }
 
 /* variasi posisi, ukuran, tempat jatuh */
-.floating-emoji:nth-child(1) { left: 5%; animation-duration: 6s; animation-delay: 0s; }
-.floating-emoji:nth-child(2) { left: 15%; animation-duration: 8s; animation-delay: 2s; font-size: 2rem; }
-.floating-emoji:nth-child(3) { left: 25%; animation-duration: 7s; animation-delay: 4s; }
-.floating-emoji:nth-child(4) { left: 35%; animation-duration: 10s; animation-delay: 1s; font-size: 1.2rem; }
-.floating-emoji:nth-child(5) { left: 45%; animation-duration: 6s; animation-delay: 3s; }
-.floating-emoji:nth-child(6) { left: 55%; animation-duration: 9s; animation-delay: 5s; font-size: 2.2rem; }
-.floating-emoji:nth-child(7) { left: 65%; animation-duration: 7s; animation-delay: 2s; }
-.floating-emoji:nth-child(8) { left: 75%; animation-duration: 11s; animation-delay: 0s; }
-.floating-emoji:nth-child(9) { left: 85%; animation-duration: 8s; animation-delay: 3s; font-size: 1.8rem; }
-.floating-emoji:nth-child(10) { left: 95%; animation-duration: 6s; animation-delay: 6s; }
+.floating-emoji:nth-child(1) { left: 5%; animation-duration: 6s; animation-delay: 0s; font-size: 5.2rem; }
+.floating-emoji:nth-child(2) { left: 15%; animation-duration: 8s; animation-delay: 2s; font-size: 5.7rem; }
+.floating-emoji:nth-child(3) { left: 25%; animation-duration: 7s; animation-delay: 4s; font-size: 5rem;}
+.floating-emoji:nth-child(4) { left: 35%; animation-duration: 10s; animation-delay: 1s; font-size: 4.9rem; }
+.floating-emoji:nth-child(5) { left: 45%; animation-duration: 6s; animation-delay: 3s; font-size: 5.3rem;}
+.floating-emoji:nth-child(6) { left: 55%; animation-duration: 9s; animation-delay: 5s; font-size: 5.9rem; }
+.floating-emoji:nth-child(7) { left: 65%; animation-duration: 7s; animation-delay: 2s; font-size: 5.1rem;}
+.floating-emoji:nth-child(8) { left: 75%; animation-duration: 11s; animation-delay: 0s; font-size: 5.4rem;}
+.floating-emoji:nth-child(9) { left: 85%; animation-duration: 8s; animation-delay: 3s; font-size: 5.5rem; }
+.floating-emoji:nth-child(10) { left: 95%; animation-duration: 6s; animation-delay: 6s; font-size: 5.8rem;}
 /* duplikasi delay sisanya agar layar penuh */
 .floating-emoji:nth-child(n+11) { animation-delay: 4s; left: calc(5% * var(--i)); }
 
