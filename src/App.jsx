@@ -44,7 +44,7 @@ function App() {
     {[...Array(20)].map((_, i) => (
       <span key={i} className="floating-emoji" style={{ '--i': i, left: `${Math.random() * 100}%`,
       animationDelay: `${Math.random() * 5}s`}}>
-        {['🎏', '🎉', '🍫', '🌸', '🍭', '💘'][i % 6]}
+        {['🎏', '🎉', '🍫', '🌸', '🍭', '💐', '💌'][i % 6]}
       </span>
     ))}
   </div>
