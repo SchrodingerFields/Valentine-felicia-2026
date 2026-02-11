@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css'; 
+import eminemImg from './assets/eminem.jpg';
 
 // --- database buat quizznya ---
 const questions = [
@@ -12,14 +13,14 @@ const questions = [
     ],
   },
   { id: 2, question: "Sekolah bosen nih, enaknya bolos kemana?", options: [{ text: "Tetep stay (anak rajin) 🏫", isCorrect: true }, { text: "bolos ke kebon pati 🌳", isCorrect: false }] },
-  { id: 3, question: "Tralalelele tralala?", options: [{ text: "Aku dong 😇", isCorrect: true }, { text: "Kamu lah 😤", isCorrect: false }] },
-  { id: 4, question: "Apa warna kesukaanku?", options: [{ text: "Biru Langit 🌊", isCorrect: false }, { text: "Merah Muda 🌸", isCorrect: true }] },
-  { id: 5, question: "Kalau liburan, aku lebih suka ke...", options: [{ text: "Pantai 🏖️", isCorrect: true }, { text: "Gunung 🏔️", isCorrect: false }] },
-  { id: 6, question: "Apa kebiasaan burukku pas tidur?", options: [{ text: "Ngorok 😴", isCorrect: false }, { text: "Ngemil bantal 🤣", isCorrect: true }] },
-  { id: 7, question: "Genre film favorit kita?", options: [{ text: "Horor 👻", isCorrect: true }, { text: "Romance 💕", isCorrect: false }] },
-  { id: 8, question: "Siapa artis idolaku?", options: [{ text: "Taylor Swift 🎤", isCorrect: true }, { text: "Bruno Mars 🎸", isCorrect: false }] },
-  { id: 9, question: "Tanggal berapa ulang tahunku?", options: [{ text: "14 Februari 📅", isCorrect: false }, { text: "17 Agustus 🇮🇩", isCorrect: true }] },
-  { id: 10, question: "Terakhir... Sayang aku nggak?", options: [{ text: "Nggak 😜", isCorrect: false }, { text: "Sayang Banget! ❤️", isCorrect: true }] },
+  { id: 3, question: "Tralalelele tralala?", options: [{ text: "Gw dong 😇", isCorrect: true }, { text: "Lu lah 😤", isCorrect: false }] },
+  { id: 4, question: "Apa yang lu lakukan kalo konser rumahsakit nanti?", options: [{ text: "Ikut crowd surf lahh 🌊", isCorrect: false }, { text: "Anteng manis di belakang aja 🌸", isCorrect: true }] },
+  { id: 5, question: "Kalau liburan, dani lebih suka ke...", options: [{ text: "Pantai 🏖️", isCorrect: true }, { text: "Alas roban 🏔️", isCorrect: false }] },
+  { id: 6, question: "Kalo jamkos, enaknya...", options: [{ text: "Bobo 😴", isCorrect: false }, { text: "Lempar kelengkeng 🍊", isCorrect: true }] },
+  { id: 7, question: "Bu sally jahat apa baik?", options: [{ text: "Jahat 😈", isCorrect: false }, { text: "Baik 💕", isCorrect: true }] },
+  { id: 8, question: "Band favorit kita apa?", options: [{ text: "Mocca 🎤", isCorrect: true }, { text: "dua orang di jalan 🎸", isCorrect: false }] },
+  { id: 9, question: "Tanggal berapa kita ke planetarium?", options: [{ text: "28 Maret 📅", isCorrect: false }, { text: "Ga mau ke planetarium 🙅‍♀️", isCorrect: true }] },
+  { id: 10, question: "Nbv kbej qbdbs hx hb? (+1 alfabet)", options: [{ text: "Hb 😜", isCorrect: false }, { text: "Zb! 😊", isCorrect: true }] },
 ];
 
 const SurprisePage = () => {
@@ -76,9 +77,11 @@ const SurprisePage = () => {
     return (
       <div className="card-glass surprise-box fade-in">
         <h1>Yeay! Lulus 100%! 🎉</h1>
-        <p>Kamu memang yang paling ngerti aku.</p>
+        <p>Fiks 100% bisa ke Blok M. BTW selamat valentine!!🎉</p>
         <div className="gallery">
-          <div className="photo-placeholder">📸 Foto Kenangan</div>
+          <div className="photo-placeholder">
+          <img src={eminemImg} className='gambar-eminem' />
+          </div>
         </div>
         <button className="btn-restart" onClick={() => window.location.reload()}>
           Ulangi Lagi ↺
