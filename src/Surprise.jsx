@@ -90,7 +90,7 @@ const SurprisePage = () => {
       </div>
     );
   }
-
+  
   // --- tampilan quiz ---
   const currentQ = questions[currentStep];
 
@@ -129,9 +129,7 @@ const SurprisePage = () => {
           </svg>
         </div>
       </div>
-
       <h2 className="question-text fade-in-text">{currentQ.question}</h2>
-
       <div className="options-grid">
         {currentQ.options.map((option, index) => (
           <button 
